@@ -1,0 +1,169 @@
+*{
+  --bg: rgb(81, 95, 226);
+  --borda-carta: rgb(0, 0, 0);
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  height: auto;
+  background-image: url('../img/fundo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.novoJogo{
+  background-color: var(--bg);
+  border: solid 1px black;
+  border-radius: 3px;
+  color: black;
+  margin: 3rem;
+  padding: .5rem;
+  text-decoration: none;
+}
+
+.div_memoria{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1{
+  margin: 0;
+  padding: .5rem;
+  background-color: var(--bg);
+  border-radius: 5px;
+}
+
+.grid{
+  display: grid;
+  width: 100%;
+  gap: 15px;
+  grid-template-columns: repeat(7, 1fr);
+  max-width: 70%;
+  margin-bottom: 5rem;
+}
+
+.card{
+  aspect-ratio: 1/1.3;
+  width: 100%;
+  border-radius: 3px;
+  position: relative;
+  transition: all 200ms ease;
+  transform-style: preserve-3d;
+}
+
+.face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  border: solid 2px var(--borda-carta);
+  border-radius: 3px;
+  transition: all 400ms ease;
+}
+
+.front{
+  transform: rotateY(180deg);
+}
+
+.back{
+  background-image: url('/img/0.png');
+  backface-visibility: hidden;
+}
+
+.reveal-card{
+  transform: rotateY(180deg);
+}
+
+.disable-card{
+  filter: saturate(0);
+  opacity: 0.5;
+}
+
+
+@media (max-width: 768px) {
+
+  .novoJogo {
+    margin: 2rem 1rem;
+    padding: .4rem 0.8rem;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 90%;
+    margin-bottom: 3rem;
+  }
+}
+
+/* Smartphones em modo retrato e dispositivos com largura de até 480px */
+@media (max-width: 480px) {
+
+  body{
+    height: auto;
+    background-size: cover;
+    background-repeat: repeat-y;
+  }
+
+  .novoJogo {
+    margin: 1.5rem 0.5rem;
+    padding: .3rem 0.6rem;
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 95%;
+    margin-bottom: 2rem;
+  }
+
+  .face{
+    border: solid 1px var(--borda-carta);
+  }
+}
+
+@media (min-width: 1024px) {
+
+  body{
+    height: auto;
+  }
+
+  .novoJogo {
+    margin: 1.5rem 0.5rem;
+    padding: .3rem 0.6rem;
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 23px;
+  }
+
+}
+
+@media (max-width: 1024px) {
+
+  body{
+    height: auto;
+  }
+
+  .grid {
+    grid-template-columns: repeat(5, 1fr); /* Colunas ainda menores para dispositivos muito pequenos */
+    max-width: 95%;
+    margin-bottom: 2rem;
+  }
+}
