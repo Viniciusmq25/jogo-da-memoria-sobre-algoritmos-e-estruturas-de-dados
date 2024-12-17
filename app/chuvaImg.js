@@ -10,7 +10,6 @@ const images = [
     '../img/8.png',
     '../img/9.png',
     '../img/10.png',
-    // Adicione até 10 imagens aqui
 ];
 
 function createImageElement(src) {
